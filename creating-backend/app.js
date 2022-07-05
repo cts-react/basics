@@ -12,21 +12,23 @@ function save(event) {
     });
 }
 
-(function () {//IIFE 
-    const promise = fetch("http://localhost:3000/orders");
-    promise.then(function (response) {
-        console.log(response);
-        const body = response.json();
-        body.then(function (orders) {
-            const list = document.getElementById("orderlist");
-
-            console.log(orders);
-            orders.forEach(order => {
-                const row = document.createElement('li');
-                row.textContent = order.item+ ", "+order.price;
-                list.appendChild(row);
-            });
+(async function () {//IIFE 
+    const response = await fetch("http://localhost:3000/orders");
+    console.log(response);
+    const orders = await response.json();
+    const list = document.getElementById("orderlist");
+    console.log(orders);
+    orders.forEach(order => {
+        const row = document.createElement('li');
+        const deleteBtn = document.createElement('button');
+        deleteBtn.addEventListener(function () {
+            fetch("http://localhost:3000/orders/"+id, {
+                method:'delete'
+            })
         })
-
-    })
+        deleteBtn.textContent = 'delete';
+        row.textContent = order.item + ", " + order.price ;
+        row.appendChild(deleteBtn);
+        list.appendChild(row);
+    });
 })();

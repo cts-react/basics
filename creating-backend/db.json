@@ -31,6 +31,19 @@
     {
       "item": "laptop",
       "id": 8
+    },
+    {
+      "item": "laptop",
+      "id": 9
+    },
+    {
+      "item": "laptop",
+      "id": 10
+    },
+    {
+      "item": "laptop",
+      "id": 11
     }
-  ]
+  ],
+  "categories":["toys", "apparel"]
 }
