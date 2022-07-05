@@ -1,8 +1,9 @@
-function save(event) {
+function save() {
     const payload = {
-        item: "laptop"
+        item: document.getElementById('item').value,
+        price:document.getElementById('price').value,
+        orderDate:document.getElementById("orderDate").value
     }
-    console.log(event);
     fetch("http://localhost:3000/orders", {
         method: 'POST',
         body: JSON.stringify(payload),

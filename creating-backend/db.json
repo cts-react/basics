@@ -1,9 +1,15 @@
 {
   "orders": [
     {
-      "item": "laptop",
-      "id": 1,
-      "category_id":1
+      "item": "Laptop",
+      "price": "1000",
+      "id": 4
+    },
+    {
+      "item": "Laptop",
+      "price": "1000",
+      "orderDate": "2022-07-06",
+      "id": 5
     }
   ],
   "categories": [
