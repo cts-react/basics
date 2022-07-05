@@ -15,13 +15,20 @@ function save(event) {
 (function () {//IIFE 
 
     async function generateCategoryDropBox() {
-        const categories = await (await fetch("http://localhost:3000/categories")).json();
-        console.log(categories);
+        let categories = localStorage.getItem('categoriesKey');
+        if (!categories) {
+            categories = await (await fetch("http://localhost:3000/categories")).json();
+            localStorage.setItem('categoriesKey', JSON.stringify(categories));
+            console.log(categories);
+        }
+        else {
+            categories = JSON.parse(categories);
+        }
         const categorySelect = document.querySelector('#categories');
         categories.forEach(category => {
             const row = document.createElement('option');
-            row.value = category;
-            row.text= category;
+            row.value = category.id;
+            row.text = category.label;
             categorySelect.appendChild(row);
         })
     }
