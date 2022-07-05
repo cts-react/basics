@@ -21,7 +21,9 @@
             // }else{
             //     event.target.style.backgroundColor = 'red';
             // }
-            event.target.style.backgroundColor = event.target.value != "" ? 'green' : 'red'; //ternary operator
+            const result = event.target.value.trim() ;
+            event.target.style.backgroundColor = result != "" ? 'green' : 'red'; //ternary operator
+            event.target.style.color = result != "" ? 'white' : 'black';
         }
         function handleClick(event) {
             console.log(event);
