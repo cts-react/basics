@@ -14,6 +14,7 @@ function AlbumList() {
     return (
         <div>
             <Counter count={photos.length}></Counter>
+            
             <input placeholder='Album ID' id='searchtext'></input><button onClick={getAlbums}>Search </button>
             <table>
                 <thead>
@@ -23,7 +24,7 @@ function AlbumList() {
                 <tbody>
                     {
                         photos.map(function (photo) {
-                            return <tr><td>{photo.title}</td>
+                            return <tr key={photo.id}><td>{photo.title}</td>
                                 <td><a href={photo.url}>click</a></td></tr>
                         })
                     }</tbody>
