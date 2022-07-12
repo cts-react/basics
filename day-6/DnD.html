@@ -9,20 +9,31 @@
         }
     </style>
     <script>
-        function allowDrop(ev) { ev.preventDefault(); }
-        function drag(ev) { ev.dataTransfer.setData("text/html", ev.target.id); }
+        function allowDrop(ev) { ev.preventDefault();
+            const imageElement = document.getElementById('drag1');
+            console.log(imageElement.get); }
+        function drag(ev) {
+            ev.dataTransfer.setData("text/html", ev.target.id);
+          
+        }
         function drop(ev) {
             ev.preventDefault();
             var data = ev.dataTransfer.getData("text/html");
-            ev.target.appendChild(document.getElementById(data));
+            const imageElement = document.getElementById('drag1');
+            console.log(imageElement.style);
+            ev.target.appendChild(imageElement);
         }
     </script>
     <p>Drag the javatpoint image into the rectangle:</p>
-    <div id="div1" style="width:350px;height:100px;padding:10px;border:1px solid #aaaaaa;" ondrop="drop(event)"
-        ondragover="allowDrop(event)"></div>
+    <div id="div1" style="width:350px;height:100px;padding:10px;border:5px solid #aaaaaa;" ondrop="drop(event)"
+        ondragover="allowDrop(event)">
+    </div>
     <br>
     <img id="drag1" src="image.webp" alt="javatpoint image" draggable="true" ondragstart="drag(event)" />
-
+    Dimensions:<div>
+        height:
+        width:
+    </div>
 </body>
 
 </html>
