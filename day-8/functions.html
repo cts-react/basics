@@ -1,0 +1,26 @@
+
+<html>
+    <script>
+        function foo(a) {
+            // console.log(a);
+            // console.log(arguments.length);
+            var elements = Object.entries(arguments);
+
+            elements.forEach(function(value, index){//callback function
+                console.log('test', value[1],index);
+            });
+        }
+        foo(11,21,31);
+        // 1
+        // 2
+        // 3
+        // foo();
+        // foo('ram', 1);
+
+    </script>
+    <body>
+        <div>11</div>
+        <div>21</div>
+        <div>31</div>
+    </body>
+</html>
