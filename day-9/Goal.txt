@@ -2,8 +2,6 @@
 Data Types, interfaces, types and generics -> DONE
 - Spread, Rest &Default Operators -DONE
 - Template literals
-- Symbols
-- Iterators/Generators
 - Computed Objects
 - new Array/ Object methods
 - basics of functional programming"
