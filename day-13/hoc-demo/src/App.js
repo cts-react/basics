@@ -1,20 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-import EnhancedComponent from './Component1';
 import ButtonComponent from './ButtonComponent';
 import SliderComponent from './SliderComponent';
-
+import HighOrderComponent from "./HighOrderComponent";
 function App(props) {
-  // Call the props from originalComponent
-  // Destructuring the props
-  
-  // Calling out the props
- return (
-   <div>
-     <ButtonComponent/>
-     <SliderComponent/>
-   </div>
- )
+  const UpdatedSlider = HighOrderComponent(SliderComponent) ;
+  const UpdatedBUtton = HighOrderComponent(ButtonComponent); 
+  return (
+    <div>
+         <UpdatedSlider/> <p></p>
+         <UpdatedBUtton/>
+    </div>
+  )
 }
 
-export default EnhancedComponent(App);
+export default App;
