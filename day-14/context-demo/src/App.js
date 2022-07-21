@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 const themes = {
   light: {
     foreground: "#000000",
@@ -10,7 +10,7 @@ const themes = {
     background: "#222222",
   },
 };
-
+const ThemeContext = createContext(themes.light);
 function App() {
   const [themeName, setThemeName] = useState("light");
   const currentTheme = themes[themeName];
@@ -23,22 +23,23 @@ function App() {
         <option value="light">Light</option>
         <option value="dark">Dark</option>
       </select>
-
-      <Toolbar theme={currentTheme} />
+      <ThemeContext.Provider value={currentTheme}>
+        <Toolbar />
+      </ThemeContext.Provider>
     </>
   );
 }
 
-function Toolbar({ theme }) {
+function Toolbar() {
   return (
     <div>
-      <ThemedButton theme={theme} />
+      <ThemedButton />
     </div>
   );
 }
 
-function ThemedButton({ theme }) {
-  const { background, foreground } = theme;
+function ThemedButton() {
+  const { background, foreground } = useContext(ThemeContext);
   return (
     <button
       style={{
