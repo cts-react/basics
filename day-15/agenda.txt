@@ -1,0 +1,6 @@
+- useState, useEffect, useReducer, useMemo, useCallback etc., Custom Hooks
+- Hooks in Depth usage 
+- State management by using Context/Redux
+- useRef in Depth
+- Replacement to Class components and its usage
+- Unit Testing with React Testing Library / JEST  for hooks
