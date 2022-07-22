@@ -10,9 +10,9 @@ function reducer(state = { counter: 10 }, action) {
     case ADD_TODO:
       return { ...state, datafromComponent: action.payload }
     case INCREMENT:
-      return state + 1;
+      return {counter:state.counter + 1};
     case DECREMENT:
-      return state - 1;
+      return {counter:state.counter + 1};
     default:
       return state;
   }

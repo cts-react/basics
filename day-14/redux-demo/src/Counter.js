@@ -8,9 +8,9 @@ export const DECREMENT = 'DECREMENT';
 export const ADD_TODO = 'ADD_TODO';
 //action creators
 function increment(name) {
+    //logic
     return { //action 
-        type: ADD_TODO,
-        payload: { text: name }
+        type: INCREMENT
     };
 }
 function decrement() {
@@ -19,9 +19,12 @@ function decrement() {
 export default function Counter() {
     const reduxState = useSelector((state) => state);
     const dispatch = useDispatch();
+    console.log(reduxState);
     return (
         <div>
             <div>Count: {reduxState.counter}</div>
+            <button onClick={() => dispatch(increment())}>+</button>
+            <button onClick={() => dispatch(decrement())}>-</button>
         </div>
     );
 }
